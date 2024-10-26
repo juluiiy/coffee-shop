@@ -533,3 +533,7 @@ fabric.properties
 /.idea/modules.xml
 /.idea/prettier.xml
 /.idea/inspectionProfiles/Project_Default.xml
+
+
+# Cypress 
+cypress/screenshots

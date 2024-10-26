@@ -22,19 +22,27 @@ const AppBanner = () => {
       <NavPanel>
         <NavList>
           <NavListItem>
-            <NavLink to="/">Coffee house</NavLink>
+            <NavLink to="/" data-cy="nav-link">
+              Coffee house
+            </NavLink>
           </NavListItem>
           <NavListItem>
-            <NavLink to="/our-coffee">Our coffee</NavLink>
+            <NavLink to="/our-coffee" data-cy="nav-link">
+              Our coffee
+            </NavLink>
           </NavListItem>
           <NavListItem>
-            <NavLink to="/for-your-pleasure">For your pleasure</NavLink>
+            <NavLink to="/for-your-pleasure" data-cy="nav-link">
+              For your pleasure
+            </NavLink>
           </NavListItem>
         </NavList>
-        <LoginButton onClick={() => navigate('/sign-in')}>Login</LoginButton>
+        <LoginButton onClick={() => navigate('/sign-in')} data-cy="login-button">
+          Login
+        </LoginButton>
       </NavPanel>
       <BannerContainer>
-        <BannerTitle>Everything You Love About Coffee</BannerTitle>
+        <BannerTitle data-cy="banner-title">Everything You Love About Coffee</BannerTitle>
         <BannerLogo src={beansLogo} alt="Beans logo" />
         <BannerText>We makes every day full of energy and taste</BannerText>
         <BannerText>Want to try our beans?</BannerText>

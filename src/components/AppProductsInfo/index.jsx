@@ -32,13 +32,13 @@ const AboutProductRender = (country, description, price) => {
 
 const AppProductsInfo = ({ title, description, image, alt, country, price }) => {
   return (
-    <SectionAboutProduct>
+    <SectionAboutProduct data-cy="section-about-product">
       <AboutProductWrapper>
         <AboutProductImg>
           <img src={image} alt={alt} />
         </AboutProductImg>
         <ArticleContainer>
-          <ArticleTitle>{title}</ArticleTitle>
+          <ArticleTitle data-cy="product-title">{title}</ArticleTitle>
           <ArticleImgContainer>
             <img src={beanImage} alt="beans" />
           </ArticleImgContainer>

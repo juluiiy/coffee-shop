@@ -42,6 +42,7 @@ const AppSearch = () => {
           ref={(reference) => (buttonReferences.current[index] = reference)}
           className={previousFilter_ === property ? 'selected' : ''}
           onClick={() => onToggleFilter(property, setFilter, previousFilter_, setPreviousFilter_, index)}
+          data-cy={`filter-button-${property}`}
         >
           {property}
         </FilterButton>
@@ -53,7 +54,7 @@ const AppSearch = () => {
   const [previousFilter, setPreviousFilter] = useState('');
 
   return (
-    <FilterSearchWrapper>
+    <FilterSearchWrapper data-cy="filter-search-wrapper">
       <FilterSearchContainer>
         <SearhContainer>
           <SearchLabel htmlFor="search">Looking for </SearchLabel>
@@ -64,6 +65,7 @@ const AppSearch = () => {
             name="search"
             autoComplete="off"
             placeholder="start typing here..."
+            data-cy="search-input"
           />
         </SearhContainer>
         <FilterContainer>

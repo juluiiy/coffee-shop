@@ -33,13 +33,13 @@ const CoffeeList = () => {
   const filteredPosts = onFilter(posts, filter);
 
   const renderPosts = () => (
-    <CoffeeListGrid>
+    <CoffeeListGrid data-cy="coffee-list-grid">
       {filteredPosts.map(({ id, title, country, price, img }) => (
-        <ItemContainer key={id}>
+        <ItemContainer key={id} data-cy="coffee-list-item">
           <Link to={`/our-coffee/${id}`}>
             <ItemEntryWrapper>
               <ItemThumbnail>
-                <img src={img} alt={title} />
+                <img src={img} alt={title} data-cy="coffee-list-thumbnail" />
               </ItemThumbnail>
               <ItemTextFolder>
                 <ItemTitle>{title}</ItemTitle>
@@ -54,8 +54,12 @@ const CoffeeList = () => {
   );
 
   return (
-    <SectionCoffeeList>
-      {filteredPosts.length > 0 ? renderPosts() : <NoResultsMessage> No results</NoResultsMessage>}
+    <SectionCoffeeList data-cy="section-coffee-list">
+      {filteredPosts.length > 0 ? (
+        renderPosts()
+      ) : (
+        <NoResultsMessage data-cy="no-results-message">No results</NoResultsMessage>
+      )}
     </SectionCoffeeList>
   );
 };

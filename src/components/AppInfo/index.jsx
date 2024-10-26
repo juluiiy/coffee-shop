@@ -5,7 +5,7 @@ const AppInfo = () => {
   return (
     <SectionInfo>
       <WrapperInfo>
-        <InfoTitle>About us</InfoTitle>
+        <InfoTitle data-cy="about-us">About us</InfoTitle>
         <ImgCenter src={Beans} alt="Beans" />
         <InfoText>
           Extremity sweetness difficult behaviour he of. On disposal of as landlord horrible. Afraid at highly months do

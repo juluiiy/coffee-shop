@@ -9,21 +9,23 @@ const AppFooter = () => {
       <FooterWrapper>
         <FooterNav>
           <FooterNavItem>
-            <NavLink to="/">
-              <span>Coffee house</span>
+            <NavLink to="/" data-cy="nav-link">
+              Coffee house
             </NavLink>
           </FooterNavItem>
           <FooterNavItem>
-            <NavLink to="/our-coffee"> Our coffee</NavLink>
+            <NavLink to="/our-coffee" data-cy="nav-link">
+              Our coffee
+            </NavLink>
           </FooterNavItem>
           <FooterNavItem>
-            <NavLink to="/for-your-pleasure">
-              <span>For your pleasure</span>
+            <NavLink to="/for-your-pleasure" data-cy="nav-link">
+              For your pleasure
             </NavLink>
           </FooterNavItem>
         </FooterNav>
         <FooterImgFolder>
-          <img src={Beans} alt="Beans" />
+          <img src={Beans} alt="Beans" data-cy="footer-image" />
         </FooterImgFolder>
       </FooterWrapper>
     </Footer>

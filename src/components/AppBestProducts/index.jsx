@@ -14,10 +14,10 @@ import {
 
 const bestPosts = postItems.slice(0, 3).map(({ title, price, img, id }) => {
   return (
-    <Link to={`/${id}`} key={id}>
+    <Link to={`/${id}`} key={id} data-cy="best-post-item">
       <BestCardItem>
         <CardItemThumbnail src={img} alt={title} />
-        <CardItemTitle>{title}</CardItemTitle>
+        <CardItemTitle data-cy="best-post-title">{title}</CardItemTitle>
         <CardItemPrice>{price}</CardItemPrice>
       </BestCardItem>
     </Link>
@@ -28,7 +28,7 @@ const AppBest = () => {
   return (
     <SectionBest>
       <WrapperBest>
-        <BestTitle>Our best</BestTitle>
+        <BestTitle data-cy="best-title">Our best</BestTitle>
         <BestCardFolder>{bestPosts}</BestCardFolder>
       </WrapperBest>
     </SectionBest>

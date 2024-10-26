@@ -8,6 +8,7 @@ module.exports = defineConfig({
       bundler: 'webpack',
       webpackConfig,
     },
+    supportFile: './cypress/support/component.js',
     specPattern: ['src/**/*.cy.{js,jsx}'],
     setupNodeEvents(on, config) {
       // component testing node events setup code
