@@ -10,6 +10,7 @@ const config = {
   },
   output: {
     filename: 'myProject.js',
+    publicPath: '/',
   },
   module: {
     rules: [
