@@ -1,15 +1,21 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 
+import { useAuthContext } from '../../providers/AuthProvider';
 import { InputsContainer, LoginContainer, LoginInput, LoginSubmit, LoginTitle } from '../styles';
 
 const CreateAccountForm = () => {
+  const { signUp, isAuth } = useAuthContext();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  if (isAuth) {
+    return <Navigate to="/" replace={true} />;
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(email, password);
+    signUp({ email, password });
   };
 
   return (

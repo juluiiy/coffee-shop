@@ -22,6 +22,13 @@ module.exports = defineConfig({
   },
 
   e2e: {
+    devServer: {
+      command: 'npm run start',
+      port: 3000,
+      timeout: 120000,
+    },
+    specPattern: ['cypress/e2e/**/*.cy.{js,jsx}'],
+    supportFile: './cypress/support/e2e.js',
     // eslint-disable-next-line no-unused-vars
     setupNodeEvents(on, config) {
       // implement node event listeners here

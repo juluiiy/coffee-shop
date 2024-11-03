@@ -1,9 +1,26 @@
 import { NavLink, useNavigate } from 'react-router-dom';
 
+import { useAuthContext } from '../../providers/AuthProvider';
 import { Header, HeaderTitle, LoginButton, NavList, NavListItem, NavPanel } from '../styles';
 
 const AppHeader = ({ background, text }) => {
+  const { signOut, isAuth } = useAuthContext();
   const navigate = useNavigate();
+
+  const handleLogout = () => {
+    signOut();
+  };
+
+  const AuthButton = isAuth ? (
+    <LoginButton onClick={handleLogout} data-cy="logout-button">
+      Logout
+    </LoginButton>
+  ) : (
+    <LoginButton onClick={() => navigate('/sign-in')} data-cy="login-button">
+      Login
+    </LoginButton>
+  );
+
   return (
     <Header background={background}>
       <NavPanel>
@@ -24,11 +41,9 @@ const AppHeader = ({ background, text }) => {
             </NavLink>
           </NavListItem>
         </NavList>
-        <LoginButton onClick={() => navigate('/sign-in')} data-cy="login-button">
-          Login
-        </LoginButton>
+        {AuthButton}
       </NavPanel>
-      <HeaderTitle>{text}</HeaderTitle>
+      <HeaderTitle data-cy="header-title">{text}</HeaderTitle>
     </Header>
   );
 };

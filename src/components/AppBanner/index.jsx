@@ -1,6 +1,7 @@
 import { NavLink, useNavigate } from 'react-router-dom';
 
 import beansLogo from '../../assets/Beens/Beans logo.svg';
+import { useAuthContext } from '../../providers/AuthProvider';
 import {
   BannerButton,
   BannerContainer,
@@ -15,8 +16,22 @@ import {
 } from '../styles';
 
 const AppBanner = () => {
+  const { signOut, isAuth } = useAuthContext();
   const navigate = useNavigate();
 
+  const handleLogout = () => {
+    signOut();
+  };
+
+  const AuthButton = isAuth ? (
+    <LoginButton onClick={handleLogout} data-cy="logout-button">
+      Logout
+    </LoginButton>
+  ) : (
+    <LoginButton onClick={() => navigate('/sign-in')} data-cy="login-button">
+      Login
+    </LoginButton>
+  );
   return (
     <BannerHead>
       <NavPanel>
@@ -37,9 +52,7 @@ const AppBanner = () => {
             </NavLink>
           </NavListItem>
         </NavList>
-        <LoginButton onClick={() => navigate('/sign-in')} data-cy="login-button">
-          Login
-        </LoginButton>
+        {AuthButton}
       </NavPanel>
       <BannerContainer>
         <BannerTitle data-cy="banner-title">Everything You Love About Coffee</BannerTitle>

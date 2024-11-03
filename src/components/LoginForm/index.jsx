@@ -1,25 +1,22 @@
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 
 import { useAuthContext } from '../../providers/AuthProvider';
 import { InputsContainer, LoginContainer, LoginInput, LoginSubmit, LoginTitle } from '../styles';
 
 const LoginForm = () => {
-  const { signIn } = useAuthContext();
+  const { signIn, isAuth } = useAuthContext();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const navigate = useNavigate();
-
+  if (isAuth) {
+    return <Navigate to="/" replace={true} />;
+  }
   const handleSubmit = (e) => {
     e.preventDefault();
-    const isSuccess = signIn(email, password);
+    console.log({ email, password });
 
-    if (!isSuccess) {
-      alert('Invalid credentials');
-    } else {
-      navigate('/');
-    }
+    signIn({ email, password });
   };
 
   return (
